@@ -106,5 +106,3 @@ artifacts {
     archives androidSourcesJar
     archives javadocJar
 }
-
-
