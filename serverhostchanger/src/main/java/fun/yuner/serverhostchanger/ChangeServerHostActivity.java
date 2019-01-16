@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yun.serverhostchanger.R;
 
 /**
  * 修改服务器地址Activity

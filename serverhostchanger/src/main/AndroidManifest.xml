@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yun.serverhostchanger">
+    package="fun.yuner.serverhostchanger">
 
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.yun.serverhostchanger.fun.yun.serverhostchanger.ChangeServerHostActivity" />
+        <activity android:name="fun.yuner.serverhostchanger.ChangeServerHostActivity" />
 
     </application>
 
