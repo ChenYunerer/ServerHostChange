@@ -16,7 +16,7 @@ An easy way to change android application base url for debugging
     </dependency>
 
 ### API
-#### init ServerHostChanger int Application.java
+#### init ServerHostChanger in Application.java
     ServerHostChangeUtil.init(context, BASE_URL);
 #### start modify activity
     ServerHostChangeUtil.startChangeServerHostActivity(activity, REQUEST_CODE);
