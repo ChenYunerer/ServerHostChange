@@ -1,5 +1,5 @@
 # ServerHostChange
-An easy way to change application base url
+An easy way to change android application base url for debugging
 
 ## How to use
 ### Gradle
@@ -16,6 +16,21 @@ An easy way to change application base url
       <type>aar</type>
     </dependency>
 
+### API
+#### init
+    ServerHostChangeUtil.init(context, BASE_URL);
+#### start modify activity
+    ServerHostChangeUtil.startChangeServerHostActivity(activity, REQUEST_CODE);
+#### activity callback
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            //restart app
+        }
+    }
+#### get current url
+    ServerHostChangeUtil.getCurrentServerHost(content);
 
 ### License
 
