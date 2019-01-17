@@ -11,7 +11,7 @@ An easy way to change android application base url for debugging
     <dependency>
       <groupId>fun.yuner</groupId>
       <artifactId>serverhostchanger</artifactId>
-      <version>1.0.11-RELEASE</version>
+      <version>last-version</version>
       <type>aar</type>
     </dependency>
 
