@@ -1,11 +1,10 @@
-# ServerHostChange
+# ServerHostChanger
 An easy way to change android application base url for debugging
 
 ## How to use
 ### Gradle
 
-    implementation 'fun.yuner:serverhostchanger:1.0.11-RELEASE'
-
+    implementation 'fun.yuner:serverhostchanger:last-version'
 
 ### Maven
 
@@ -17,24 +16,25 @@ An easy way to change android application base url for debugging
     </dependency>
 
 ### API
-#### init
+#### init ServerHostChanger int Application.java
     ServerHostChangeUtil.init(context, BASE_URL);
 #### start modify activity
     ServerHostChangeUtil.startChangeServerHostActivity(activity, REQUEST_CODE);
+#### get current url
+    ServerHostChangeUtil.getCurrentServerHost(content);
 #### activity callback
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            //restart app
+            //In order for the changes to take effect sometimes you should
+            //restart app like : System.exit(0);
         }
     }
-#### get current url
-    ServerHostChangeUtil.getCurrentServerHost(content);
 
 ### License
 
-    Copyright 2019 Yuner, Inc.
+    Copyright 2019 ChenYun, Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
