@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="default server host : "
+            android:text="@string/default_server_host_tip"
             android:textStyle="bold" />
 
         <TextView
@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="current server host : "
+            android:text="@string/current_server_host_tip"
             android:textStyle="bold" />
 
         <TextView
@@ -184,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@android:color/holo_blue_dark"
-        android:text="set to default"
+        android:text="@string/set_to_default"
         android:textColor="@android:color/white" />
 
     <Button
@@ -193,7 +193,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@android:color/holo_blue_bright"
-        android:text="save changes"
+        android:text="@string/save_changes"
         android:textColor="@android:color/white" />
 
 </LinearLayout>

@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 /**
- * 修改服务器地址Util
+ * modify server host util
+ * @author ChenYun
  */
 public class ServerHostChangeUtil {
     public static final String SP_NAME = "SERVER_HOST_CHANGE_SP";
@@ -15,7 +16,7 @@ public class ServerHostChangeUtil {
     private static String currentServerHost;
 
     /**
-     * 初始化
+     * init ServerHostChangerUtil with context and default server host
      *
      * @param context        context
      * @param defaultBaseUrl default base url
@@ -28,10 +29,10 @@ public class ServerHostChangeUtil {
     }
 
     /**
-     * 获取默认服务器地址
+     * get default server host
      *
      * @param context context
-     * @return 默认服务器地址
+     * @return default server host
      */
     public static String getDefaultServerHost(Context context) {
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
@@ -39,10 +40,10 @@ public class ServerHostChangeUtil {
     }
 
     /**
-     * 设置当前服务器地址
+     * set current server host
      *
      * @param context           context
-     * @param currentServerHost 当前服务器地址
+     * @param currentServerHost current server host
      */
     public static void setCurrentServerHost(Context context, String currentServerHost) {
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
@@ -53,10 +54,10 @@ public class ServerHostChangeUtil {
     }
 
     /**
-     * 获取当前服务器地址
+     * get current server host
      *
      * @param context content
-     * @return 获取当前服务器地址
+     * @return current server host
      */
     public static String getCurrentServerHost(Context context) {
         if (currentServerHost == null || currentServerHost.isEmpty()) {
@@ -70,7 +71,7 @@ public class ServerHostChangeUtil {
     }
 
     /**
-     * 启动修改服务器地址页面
+     * start modify server host activity
      *
      * @param context     activity
      * @param requestCode request code

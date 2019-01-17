@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         changeServerHostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //start modify activity
                 ServerHostChangeUtil.startChangeServerHostActivity(MainActivity.this, CHANGE_SERVER_HOST_REQUEST_CODE);
             }
         });
@@ -30,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CHANGE_SERVER_HOST_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            //get current url
             String currentBaseUrl = ServerHostChangeUtil.getCurrentServerHost(MainActivity.this);
+            //In order for the changes to take effect sometimes you should
+            //restart app like : System.exit(0);
         }
     }
 }

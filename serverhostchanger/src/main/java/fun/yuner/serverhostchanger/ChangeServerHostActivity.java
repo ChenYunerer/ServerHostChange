@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 
 /**
- * 修改服务器地址Activity
+ * modify server host activity
+ * @author ChenYun
  */
 public class ChangeServerHostActivity extends AppCompatActivity {
     private String defaultServerHost;
@@ -60,7 +61,7 @@ public class ChangeServerHostActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置当前服务器地址为默认地址
+     * set current server host to default host
      */
     private void setToDefault() {
         String defaultServerHostStr = ServerHostChangeUtil.getDefaultServerHost(ChangeServerHostActivity.this);
@@ -71,7 +72,7 @@ public class ChangeServerHostActivity extends AppCompatActivity {
     }
 
     /**
-     * 保存修改
+     * save changes
      */
     private void saveChanges() {
         String schemaStr = "http://";

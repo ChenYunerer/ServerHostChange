@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ServerHostChanger</string>
+    <string name="default_server_host_tip">default server host :</string>
+    <string name="current_server_host_tip">current server host :</string>
+    <string name="set_to_default">set to default</string>
+    <string name="save_changes">save changes</string>
 </resources>
