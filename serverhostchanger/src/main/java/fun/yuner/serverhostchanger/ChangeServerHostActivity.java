@@ -2,7 +2,6 @@ package fun.yuner.serverhostchanger;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,7 @@ import android.widget.Toast;
  * modify server host activity
  * @author ChenYun
  */
-public class ChangeServerHostActivity extends AppCompatActivity {
+public class ChangeServerHostActivity extends Activity {
     private String defaultServerHost;
     private String currentServerHost;
     private TextView defaultServerHostTv, currentServerHostTv;
