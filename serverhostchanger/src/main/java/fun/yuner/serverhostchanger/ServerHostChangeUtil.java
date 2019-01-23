@@ -5,14 +5,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * modify server host util
+ *
  * @author ChenYun
  */
 public class ServerHostChangeUtil {
     public static final String SP_NAME = "SERVER_HOST_CHANGE_SP";
     public static final String SP_DEFAULT_SERVER_HOST_KEY = "SP_DEFAULT_SERVER_HOST_KEY";
     public static final String SP_CURRENT_SERVER_HOST_KEY = "SP_CURRENT_SERVER_HOST_KEY";
+    public static final String SP_HISTORY_SERVER_HOST_KEY = "SP_HISTORY_SERVER_HOST_KEY";
     private static String currentServerHost;
 
     /**
@@ -46,11 +54,39 @@ public class ServerHostChangeUtil {
      * @param currentServerHost current server host
      */
     public static void setCurrentServerHost(Context context, String currentServerHost) {
+        //save current server host
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(SP_CURRENT_SERVER_HOST_KEY, currentServerHost);
         editor.commit();
         ServerHostChangeUtil.currentServerHost = null;
+        //save history server host
+        String historyServerHostJsonArrayStr = sp.getString(SP_HISTORY_SERVER_HOST_KEY, "");
+        try {
+            JSONArray historyServerHostJsonArray;
+            if (historyServerHostJsonArrayStr.isEmpty()) {
+                historyServerHostJsonArray = new JSONArray();
+                historyServerHostJsonArray.put(currentServerHost);
+                editor.putString(SP_HISTORY_SERVER_HOST_KEY, historyServerHostJsonArray.toString());
+                editor.commit();
+            } else {
+                historyServerHostJsonArray = new JSONArray(historyServerHostJsonArrayStr);
+                boolean contains = false;
+                for (int i = 0; i < historyServerHostJsonArray.length(); i++) {
+                    if (historyServerHostJsonArray.get(i).equals(currentServerHost)) {
+                        contains = true;
+                    }
+                }
+                if (!contains) {
+                    historyServerHostJsonArray.put(currentServerHost);
+                    editor.putString(SP_HISTORY_SERVER_HOST_KEY, historyServerHostJsonArray.toString());
+                    editor.commit();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -68,6 +104,29 @@ public class ServerHostChangeUtil {
             currentServerHost = getDefaultServerHost(context);
         }
         return currentServerHost;
+    }
+
+    /**
+     * get history server host
+     *
+     * @param context content
+     * @return history serve host list
+     */
+    public static List<String> getHistoryServerHost(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        String historyServerHostJsonStr = sp.getString(SP_HISTORY_SERVER_HOST_KEY, "");
+        List<String> historyServerHostList = new ArrayList<>();
+        try {
+            JSONArray historyServerHostJsonArray = new JSONArray(historyServerHostJsonStr);
+            for (int i = 0; i < historyServerHostJsonArray.length(); i++) {
+                String historyServerHostStr = historyServerHostJsonArray.getString(i);
+                historyServerHostList.add(historyServerHostStr);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return historyServerHostList;
+        }
+        return historyServerHostList;
     }
 
     /**

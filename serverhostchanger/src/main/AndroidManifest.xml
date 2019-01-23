@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fun.yuner.serverhostchanger">
 
-    <application
-        android:theme="@style/AppTheme">
-        <activity android:name="fun.yuner.serverhostchanger.ChangeServerHostActivity" />
+    <application>
+        <activity
+            android:name="fun.yuner.serverhostchanger.ChangeServerHostActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
 
     </application>
 
